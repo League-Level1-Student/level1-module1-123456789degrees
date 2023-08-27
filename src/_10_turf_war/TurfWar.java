@@ -1,6 +1,7 @@
 package _10_turf_war;
 
 import java.awt.Color;
+import java.awt.Graphics;
 
 import processing.core.PApplet;
 
@@ -20,7 +21,17 @@ public class TurfWar extends PApplet {
         int leftKey;
         int downKey;
         int rightKey;
-
+        public Player(int x, int y, int speed, int playerSize, int playerColor, int upKey, int leftKey, int downKey, int rightKey) {
+            this.x = x;
+            this.y = y;
+            this.speed = speed;
+            this.playerSize = playerSize;
+            this.playerColor = playerColor;
+            this.upKey = upKey;
+            this.leftKey = leftKey;
+            this.downKey = downKey;
+            this.rightKey = rightKey;
+        }
         /*
          * The member variables below do not need to be initialized in the
          * constructor.
@@ -31,12 +42,13 @@ public class TurfWar extends PApplet {
         boolean moveRight = false;
         int pixelCount = 0;
 
-        void drawPlayer() {
+        void drawPlayer(Graphics g) {
             /*
              * 2. Draw a rectangle to represent the the Player using its color,
              * coordinates and size.
              */
             
+            g.drawRect(x, y, playerSize, playerSize);
         }
 
         void update() {
@@ -50,6 +62,16 @@ public class TurfWar extends PApplet {
              */     
             if (moveUp && y > statsBoardLine) {
                 y-=speed;
+            }
+            
+            else if (moveDown && y < -24) {
+            	y += speed;
+            }
+            else if (moveRight && x < 24) {
+            	x += speed;
+            }
+            else if (moveLeft && x > 0) {
+            	x -= speed;
             }
             
             /* 

@@ -64,6 +64,7 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
     Hippo lizzie = new Hippo("left", "purple", "Lizzie");
     Hippo henry = new Hippo("up", "orange", "Henry");
     Hippo homer = new Hippo("right", "green", "Homer");
+    Hippo harry = new Hippo("down", "yellow", "Harry");
     public HungryHungryHippos() {
         gameFrame.setScene(this);
         gameFrame.start();
@@ -98,7 +99,9 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
          * Draw all the hippos here
          */
         lizzie.draw(g);
-        
+        henry.draw(g);
+        homer.draw(g);
+        harry.draw(g);
         if (startGame) {
             /*
              * Move all the melons
@@ -111,6 +114,9 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
              * this for all of your hippos!
              */
             checkHippoEating(lizzie);
+            checkHippoEating(henry);
+            checkHippoEating(homer);
+            checkHippoEating(harry);
         }
     }
 
@@ -126,11 +132,13 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
         } else if (keyCode == KeyEvent.VK_1) {
             lizzie.eat();
         } else if (keyCode == KeyEvent.VK_2) {
+        	henry.eat();
             
         } else if (keyCode == KeyEvent.VK_3) {
+        	homer.eat();
             
         } else if (keyCode == KeyEvent.VK_4) {
-            
+            harry.eat();
         }
     }
     
