@@ -47,7 +47,7 @@ public class TurfWar extends PApplet {
              * 2. Draw a rectangle to represent the the Player using its color,
              * coordinates and size.
              */
-            
+            fill(playerColor);
             rect(x, y, playerSize, playerSize);
         }
 
@@ -167,8 +167,8 @@ public class TurfWar extends PApplet {
 
         // 7. Call the noStroke Method.
         noStroke();
-        player1 = new Player(10, 10, 10, 50, 255, W, A, S, D);
-        player2 = new Player(20, 10, 10, 50, 255, UP, LEFT, DOWN, RIGHT);
+        player1 = new Player(50, 50, 10, 50, Color.GREEN.getRGB(), W, A, S, D);
+        player2 = new Player(80, 80, 10, 50, Color.BLUE.getRGB(), UP, LEFT, DOWN, RIGHT);
         /*
          * 8. Initialize the two Player objects. For one use UP, LEFT, DOWN,
          * RIGHT for the keys, for the second use the W,A,S,D final int 
